@@ -1,0 +1,16 @@
+<h1><%=@u.name%>'s RECIPES!</h1>
+
+<ul>
+
+<%@u_recipes.each do |r|%>
+    <li><%=r.name%></li>    
+    <li><%=Category.find(r.category_id).name%></li>
+    <li><%=r.instructions%></li>
+<%end%>    
+
+<%@u_recipes.each do |r|%>
+    <li><%=r.ingredients%></li>
+<%end%>
+</ul>
+    
+  
