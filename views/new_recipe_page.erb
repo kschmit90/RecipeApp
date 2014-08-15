@@ -1,0 +1,25 @@
+<%if @new_recipe.errors.any?%>
+  <%@new_recipe.errors.full_messages.each do |message|%>
+    <h1>A Recipe by that name already exists. PLEASE TRY AGAIN.</h1>
+      <a href="/create_recipe">TRY AGAIN</a>
+    <%end%>
+<%else%>
+  <h1>YOUR NEW RECIPE IS <%=@new_recipe.name%>!</h1>
+
+  <h2>YOUR RECIPE IS FILED UNDER: <%=Category.find(@new_recipe.category_id).name%></h2>
+  <h2>TO MAKE YOUR RECIPE YOU WILL NEED: </h2>
+    <ul>
+      <%@new_recipe.ingredients.each do |i|%>
+        <li><%=i.ingredient%></li>
+      <%end%>  
+    </ul>
+  <h2>TO MAKE THESE THINGS EDIBLE DO THIS: </h2>
+  <p></p>
+  <p><%=@new_recipe.instructions%></p>
+      
+  <a href="/create_recipe">CREATE A RECIPE</a>
+  <p></p>
+  <a href="/">HOME</a>
+<%end%>
+
+

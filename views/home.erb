@@ -1,12 +1,15 @@
 <h1>RECIPES</h1>
 
 <h2><a href="/create_user">CREATE USER</a></h2>
-<p>UNIQUE USERS IF USER WITH NAME EXISTS TRY AGAIN</p>
+<p>Users are unique if name already exists, try again.</p>
 
 <h2><a href="/create_recipe">CREATE RECIPE</a></h2>
-<p>PLEASE GIVE UNIQUE RECIPE NAME IE PEPPERONI PIZZA</p>
+<p>Recipes are unique, be specific in your naming.</p>
 
-<form action="/recipe_search/:name" method="get">
-<h2>SEARCH RECIPES: <input type="text" name="search"></h2>
+<form action="/recipe_search" method="get">
+<h2>Search for Recipes: <input type="text" name="search"></h2>
+</form>
 
-<h2>DISPLAY 10 MOST RECENTLY CREATED RECIPES</h2>
+<form action="/your_recipes" method="get">
+<h2>To view your recipes, enter your username: <input type="text" name="name"></h2>
+</form>

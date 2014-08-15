@@ -1,44 +1,77 @@
-<h1>MAKE RECIPES</h1>
+<head>
+<script>
+function validateName() {
+    var x = document.forms["recipe"]["fname"].value;
+	var y = document.forms["recipe"]["frecipe"].value;
+	var z = document.forms["recipe"]["finstructions"].value;
+	var i = document.forms["recipe"]["i1"].value;
+    if (x == null || x == "") {
+        alert("Name must be filled out");
+        return false;
+    }
+	else if (y == null || y == "") {
+		alert("Recipe must be filled out");
+		return false;
+	}
+	else if (z == null || z == "") {
+		alert("Instructions must be filled out");
+		return false;
+	}
+	else if (i == null || i == "") {
+		alert("Fill out at least the first Ingredient");
+		return false;
+	}
+}
 
-<form action="/save_recipe" method="post" id="recipeform">
+</script>
+</head>
+
+<body>
+
+<h1>MAKE RECIPES</h1>
+<p></p>
+<h2>TO SAVE YOUR RECIPE YOU MUST ENTER THE NAME YOU CREATED.</h2>
+<p></p>
+<form name="recipe" action="/save_recipe"  id="recipeform" onsubmit="return validateName()" method="post">
   <ul>
-    <li>YOUR NAME: <input type="text" name="name"></li>
-    <li>RECIPE NAME: <input type="text" name="recipe"></li>
+    <li>YOUR NAME: <input type="text" name="fname"></li>
+    <li>RECIPE NAME: <input type="text" name="frecipe"></li>
     <li>CATEGORY: <select name="categorylist" form="recipeform"> 
-                    <option value="cakes">Cakes</option>
-                    <option value="pies">Pies</option>
-                    <option value="casseroles">Casseroles</option>
-                    <option value="pizza">Pizza</option>
-                    <option value="dessert">Dessert</option>
-                    <option value="dinner">Dinner</option>
-                    <option value="healthy">Healthy</option>
-                    <option value="comfort">Comfort</option>
-                    <option value="breakfast">Breakfast</option>
-                    <option value="lunch">Lunch</option>
-                    <option value="other">Other</option>
-                    <option value="beverages">Beverages</option>
+                    <option value="1">Cakes</option>
+                    <option value="2">Pies</option>
+                    <option value="3">Casseroles</option>
+                    <option value="4">Pizza</option>
+                    <option value="5">Dessert</option>
+                    <option value="6">Dinner</option>
+                    <option value="7">Healthy</option>
+                    <option value="8">Comfort</option>
+                    <option value="9">Breakfast</option>
+                    <option value="10">Lunch</option>
+                    <option value="11">Other</option>
+                    <option value="12">Beverages</option>
                 </select>
               </li>
-    <li>INSTRUCTIONS: <textarea cols="40" rows="5" name="instructions"></textarea></li>
+    <li>INSTRUCTIONS: <textarea cols="40" rows="5" name="finstructions"></textarea></li>
   </ul>
       <ol>
-        <li>INGREDIENT: <input type="text" name="ingredient1"></li>
-        <li>INGREDIENT: <input type="text" name="ingredient2"></li>
-        <li>INGREDIENT: <input type="text" name="ingredient3"></li>
-        <li>INGREDIENT: <input type="text" name="ingredient4"></li>
-        <li>INGREDIENT: <input type="text" name="ingredient5"></li>
-        <li>INGREDIENT: <input type="text" name="ingredient6"></li>
-        <li>INGREDIENT: <input type="text" name="ingredient7"></li>
-        <li>INGREDIENT: <input type="text" name="ingredient8"></li>
-        <li>INGREDIENT: <input type="text" name="ingredient9"></li>
-        <li>INGREDIENT: <input type="text" name="ingredient10"></li>
-        <li>INGREDIENT: <input type="text" name="ingredient11"></li>
-        <li>INGREDIENT: <input type="text" name="ingredient12"></li>
-        <li>INGREDIENT: <input type="text" name="ingredient13"></li>
-        <li>INGREDIENT: <input type="text" name="ingredient14"></li>
-        <li>INGREDIENT: <input type="text" name="ingredient15"></li>
+        <li>INGREDIENT: <input type="text" name="i1"></li>
+        <li>INGREDIENT: <input type="text" name="i2"></li>
+        <li>INGREDIENT: <input type="text" name="i3"></li>
+        <li>INGREDIENT: <input type="text" name="i4"></li>
+        <li>INGREDIENT: <input type="text" name="i5"></li>
+        <li>INGREDIENT: <input type="text" name="i6"></li>
+        <li>INGREDIENT: <input type="text" name="i7"></li>
+        <li>INGREDIENT: <input type="text" name="i8"></li>
+        <li>INGREDIENT: <input type="text" name="i9"></li>
+        <li>INGREDIENT: <input type="text" name="i10"></li>
+        <li>INGREDIENT: <input type="text" name="i11"></li>
+        <li>INGREDIENT: <input type="text" name="i12"></li>
+        <li>INGREDIENT: <input type="text" name="i13"></li>
+        <li>INGREDIENT: <input type="text" name="i14"></li>
+        <li>INGREDIENT: <input type="text" name="i15"></li>
       </ol>
-<input type="submit">
+<input type="submit" value="submit">
   
   
 </form>
+</body>
