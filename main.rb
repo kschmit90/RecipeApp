@@ -11,9 +11,10 @@ require_relative "./models/category.rb"
 require_relative "./models/user.rb"
 require_relative "./models/recipe.rb"
 
+binding.pry
 
 get "/" do
-  
+  @names = User.all
   
   erb :home
 end
@@ -38,21 +39,17 @@ post "/save_user" do
 end
 
 get "/create_recipe" do
+  @names = User.all
   erb :create_recipe
 end
 
 post "/save_recipe" do
-  name = params["fname"]
+  u_id = params["namelist"]
   recipe = params["frecipe"]
   instructions = params["finstructions"]
   c = params["categorylist"]
-  
-  if User.find_by_name(name) == nil
-    @new_recipe = Recipe.create({name: recipe, instructions: instructions, category_id: c, user_id: 1})
-  else
-    name_id = User.find_by_name(name).id  
-    @new_recipe = Recipe.create({name: recipe, instructions: instructions, category_id: c, user_id: name_id})
-  end
+
+  @new_recipe = Recipe.create({name: recipe, instructions: instructions, category_id: c, user_id: u_id})
   
   params.each do |k, v|
     if k.length < 3 && v.length > 1
@@ -64,20 +61,24 @@ post "/save_recipe" do
   erb :new_recipe_page
 end
   
-get "/your_recipes" do
-  name = params["name"]
-  if User.find_by_name(name) == nil
-    @user = User.find(1)
-  else
-    @user = User.find_by_name(name)
-  end
-  erb :your_recipes
+get "/user_recipes" do
+  u_id = params["id"]
+  @user = User.find(u_id)
+  binding.pry
+  erb :user_recipes
 end
 
 get "/recipe_search" do
   n = params["search"]
   @recipes = Recipe.where("name LIKE '%#{n}%'")
   erb :search
+end
+  
+get "/recipe_page/:id" do
+  r_id = params["id"]
+  @recipe = Recipe.find(r_id)
+  binding.pry
+  erb :recipe_page
 end
   
   

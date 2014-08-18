@@ -10,6 +10,13 @@
 <h2>Search for Recipes: <input type="text" name="search"></h2>
 </form>
 
-<form action="/your_recipes" method="get">
-<h2>To view your recipes, enter your username: <input type="text" name="name"></h2>
+<h2>USER RECIPES</h2>
+<form action="/user_recipes" method="get" id="nameform">
+					<select name="id" form="nameform">
+					<%@names.each do |n|%>
+					<option value="<%=n.id%>"><%=n.name%></option>
+					<%end%>
+					<input type="submit">
+					
+					</select>
 </form>

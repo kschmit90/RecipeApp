@@ -5,14 +5,13 @@
   <li>RECIPE NAME: <%=r.name%></li>
   <ul>
     <li>CATEGORY: <%=Category.find(r.category_id).name%></li>
+    <li>INSTRUCTIONS: <%=r.instructions%></li>  
     <li>INGREDIENTS:</li>
 		<ul>
         	<%r.ingredients.each do |i|%>
         	<li><%=i.ingredient%></li>
         	<%end%>
 		</ul>
-      </ul>
-    <li>INSTRUCTIONS: <%=r.instructions%></li>  
   </ul>
   <%end%>  
 </ol>

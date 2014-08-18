@@ -1,16 +1,5 @@
 <ul>
 <%@recipes.each do |r|%>
-  <li>RECIPE NAME: <%=r.name%></li>
-  <ul>
-    <li>CATEGORY: <%=Category.find(r.category_id).name%></li>
-      <ul>
-		 <li>INGREDIENTS: </li>
-		 	<ul>
-        	<%r.ingredients.each do |i|%>
-				<li><%=i.ingredient%></li>
-        	<%end%>
-			</ul>
-      </ul>
-    <li>INSTRUCTIONS: <%=r.instructions%></li>  
+  <li><a href="recipe_page/<%=r.id%>"><%=r.name%></a></li>
 <%end%>
 </ul>

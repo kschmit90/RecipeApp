@@ -1,0 +1,11 @@
+<h1><%=@recipe.name%></h1>
+<ul>
+	<li><%=@recipe.name%> is a: <%=@recipe.category.name%></li>
+	<li><%=@recipe.user.name%> Created this recipe.</li>
+	<li>To make this do - <%=@recipe.instructions%></li>
+	<ul>
+		<%@recipe.ingredients.each do |i|%>
+		<li><%=i.ingredient%></li> 
+		<%end%>
+	</ul>
+</ul>

@@ -1,15 +1,10 @@
 <head>
 <script>
 function validateName() {
-    var x = document.forms["recipe"]["fname"].value;
 	var y = document.forms["recipe"]["frecipe"].value;
 	var z = document.forms["recipe"]["finstructions"].value;
 	var i = document.forms["recipe"]["i1"].value;
-    if (x == null || x == "") {
-        alert("Name must be filled out");
-        return false;
-    }
-	else if (y == null || y == "") {
+	if (y == null || y == "") {
 		alert("Recipe must be filled out");
 		return false;
 	}
@@ -34,12 +29,17 @@ function validateName() {
 <p></p>
 <form name="recipe" action="/save_recipe"  id="recipeform" onsubmit="return validateName()" method="post">
   <ul>
-    <li>YOUR NAME: <input type="text" name="fname"></li>
+    <li>YOUR NAME: <select name="namelist" form="recipeform">
+    				<%@names.each do |n|%>
+					<option value="<%=n.id%>"><%=n.name%></option>
+					<%end%>
+					</select>
+					</li>
     <li>RECIPE NAME: <input type="text" name="frecipe"></li>
     <li>CATEGORY: <select name="categorylist" form="recipeform"> 
-                    <option value="1">Cakes</option>
-                    <option value="2">Pies</option>
-                    <option value="3">Casseroles</option>
+                    <option value="1">Cake</option>
+                    <option value="2">Pie</option>
+                    <option value="3">Casserole</option>
                     <option value="4">Pizza</option>
                     <option value="5">Dessert</option>
                     <option value="6">Dinner</option>
@@ -48,7 +48,7 @@ function validateName() {
                     <option value="9">Breakfast</option>
                     <option value="10">Lunch</option>
                     <option value="11">Other</option>
-                    <option value="12">Beverages</option>
+                    <option value="12">Beverage</option>
                 </select>
               </li>
     <li>INSTRUCTIONS: <textarea cols="40" rows="5" name="finstructions"></textarea></li>
