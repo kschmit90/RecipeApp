@@ -1,17 +1,21 @@
-<h1><%=@user.name%>'s RECIPES</h1>
+<h1><%=@user.name%>'s Recipes:</h1>
 
 <ol>
   <%@user.recipes.each do |r|%>
-  <li>RECIPE NAME: <%=r.name%></li>
+  <li>Recipe Name - <%=r.name%></li>
+  <br>
   <ul>
-    <li>CATEGORY: <%=Category.find(r.category_id).name%></li>
-    <li>INSTRUCTIONS: <%=r.instructions%></li>  
-    <li>INGREDIENTS:</li>
+    <li>Category - <%=Category.find(r.category_id).name%></li>
+	<br>
+    <li>Instructions - <%=r.instructions%></li> 
+	<br> 
+    <li>Ingredients:</li>
 		<ul>
         	<%r.ingredients.each do |i|%>
         	<li><%=i.ingredient%></li>
         	<%end%>
 		</ul>
   </ul>
+  <br>
   <%end%>  
 </ol>

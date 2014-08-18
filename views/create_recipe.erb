@@ -4,6 +4,7 @@ function validateName() {
 	var y = document.forms["recipe"]["frecipe"].value;
 	var z = document.forms["recipe"]["finstructions"].value;
 	var i = document.forms["recipe"]["i1"].value;
+	
 	if (y == null || y == "") {
 		alert("Recipe must be filled out");
 		return false;
@@ -23,20 +24,16 @@ function validateName() {
 
 <body>
 
-<h1>MAKE RECIPES</h1>
-<p></p>
-<h2>TO SAVE YOUR RECIPE YOU MUST ENTER THE NAME YOU CREATED.</h2>
-<p></p>
+<h1>Create a Recipe!</h1>
 <form name="recipe" action="/save_recipe"  id="recipeform" onsubmit="return validateName()" method="post">
   <ul>
-    <li>YOUR NAME: <select name="namelist" form="recipeform">
-    				<%@names.each do |n|%>
-					<option value="<%=n.id%>"><%=n.name%></option>
-					<%end%>
-					</select>
-					</li>
-    <li>RECIPE NAME: <input type="text" name="frecipe"></li>
-    <li>CATEGORY: <select name="categorylist" form="recipeform"> 
+	<li>Name: <select name="namelist" form="recipeform">
+    	<%@names.each do |n|%>
+			<option value="<%=n.id%>"><%=n.name%></option>
+		<%end%>
+	</select></li>
+    <li>Recipe Name: <input type="text" name="frecipe"></li>
+    <li>Category: <select name="categorylist" form="recipeform"> 
                     <option value="1">Cake</option>
                     <option value="2">Pie</option>
                     <option value="3">Casserole</option>
@@ -51,27 +48,28 @@ function validateName() {
                     <option value="12">Beverage</option>
                 </select>
               </li>
-    <li>INSTRUCTIONS: <textarea cols="40" rows="5" name="finstructions"></textarea></li>
+    <li>Instructions: <textarea cols="40" rows="5" name="finstructions"></textarea></li>
   </ul>
       <ol>
-        <li>INGREDIENT: <input type="text" name="i1"></li>
-        <li>INGREDIENT: <input type="text" name="i2"></li>
-        <li>INGREDIENT: <input type="text" name="i3"></li>
-        <li>INGREDIENT: <input type="text" name="i4"></li>
-        <li>INGREDIENT: <input type="text" name="i5"></li>
-        <li>INGREDIENT: <input type="text" name="i6"></li>
-        <li>INGREDIENT: <input type="text" name="i7"></li>
-        <li>INGREDIENT: <input type="text" name="i8"></li>
-        <li>INGREDIENT: <input type="text" name="i9"></li>
-        <li>INGREDIENT: <input type="text" name="i10"></li>
-        <li>INGREDIENT: <input type="text" name="i11"></li>
-        <li>INGREDIENT: <input type="text" name="i12"></li>
-        <li>INGREDIENT: <input type="text" name="i13"></li>
-        <li>INGREDIENT: <input type="text" name="i14"></li>
-        <li>INGREDIENT: <input type="text" name="i15"></li>
+        <li>Ingredient 1: <input type="text" name="i1"></li>
+        <li>Ingredient 2: <input type="text" name="i2"></li>
+        <li>Ingredient 3: <input type="text" name="i3"></li>
+        <li>Ingredient 4: <input type="text" name="i4"></li>
+        <li>Ingredient 5: <input type="text" name="i5"></li>
+        <li>Ingredient 6: <input type="text" name="i6"></li>
+        <li>Ingredient 7: <input type="text" name="i7"></li>
+        <li>Ingredient 8: <input type="text" name="i8"></li>
+        <li>Ingredient 9: <input type="text" name="i9"></li>
+        <li>Ingredient 10: <input type="text" name="i10"></li>
+        <li>Ingredient 11: <input type="text" name="i11"></li>
+        <li>Ingredient 12: <input type="text" name="i12"></li>
+        <li>Ingredient 13: <input type="text" name="i13"></li>
+        <li>Ingredient 14: <input type="text" name="i14"></li>
+        <li>Ingredient 15: <input type="text" name="i15"></li>
       </ol>
-<input type="submit" value="submit">
+<input type="submit" value="Create it!">
   
   
 </form>
+<a href='/'>Home</a>
 </body>

@@ -1,0 +1,12 @@
+<h1>Select your name.</h1>
+<form action="/recipe_form" name="namelist">
+<h2>Username: <select name="namelist" form="namelist">
+    		  <%@names.each do |n|%>
+			  <option value="<%=n.id%>"><%=n.name%></option>
+			  <%end%>
+			  <input type="submit" value="Create Recipe!">
+			  </select></h2>
+</form>
+
+<h2>If your name is not listed, create a <a href="create_user">Username</a></h2>
+<h3><a href="/">Home</a></h3>

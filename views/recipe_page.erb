@@ -1,11 +1,14 @@
 <h1><%=@recipe.name%></h1>
+<p>Recipe created by - <%=@recipe.user.name%></p>
 <ul>
-	<li><%=@recipe.name%> is a: <%=@recipe.category.name%></li>
-	<li><%=@recipe.user.name%> Created this recipe.</li>
-	<li>To make this do - <%=@recipe.instructions%></li>
+	<li>Category - <%=Category.find(@recipe.category_id).name%></li>
+  	<br>
+    <li>Instructions - <%=@recipe.instructions%></li> 
+	<br> 
+    <li>Ingredients:</li>
 	<ul>
-		<%@recipe.ingredients.each do |i|%>
-		<li><%=i.ingredient%></li> 
-		<%end%>
+        <%@recipe.ingredients.each do |i|%>
+        <li><%=i.ingredient%></li>
+        <%end%>
 	</ul>
 </ul>
