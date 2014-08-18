@@ -39,7 +39,6 @@ end
 
 get '/create_recipe' do
   @names = User.all
-  @id = params['id']
 
   erb :create_recipe
 end
