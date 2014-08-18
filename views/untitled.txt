@@ -1,6 +1,0 @@
-Check boxes for already existing ingredients.
-
-create_recipe/:user_id
-
-search by ingredient
-
