@@ -1,3 +1,4 @@
+# Index, show, new, create, edit, update, delete
 require 'pry'
 
 require 'sinatra'
