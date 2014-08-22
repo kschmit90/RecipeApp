@@ -1,26 +1,40 @@
-<%if @recipe.errors.any?%>
-  <%@recipe.errors.full_messages.each do |message|%>
-    <h1>A Recipe by that name already exists. Please try again.</h1>
-      <h2><a href="/create_recipe">Try again?</a></h2>
-	  <h2><a href="/">Home</a></h2>
-    <%end%>
-<%else%>
-  <h1>Your new recipe is: <%=@recipe.name%>!</h1>
+<% if @recipe.valid? %>
 
-  <h2>Your recipe is filed under: <%=Category.find(@recipe.category_id).name%></h2>
+  <h1>Your new recipe is: <%= @recipe.name %></h1>
+
+  <h2>Your recipe is filed under: <%= @category %></h2>
+  
   <h2>To make your recipe you will need: </h2>
-    <ul>
-      <%@recipe.ingredients.each do |i|%>
-        <li><%=i.ingredient%></li>
-      <%end%>  
-    </ul>
-  <h2>To make it all edible you should: </h2>
-  <p></p>
-  <p><%=@recipe.instructions%></p>
+    
+	<ul>
       
-  <a href="/create_recipe">Create another recipe?</a>
-  <p></p>
+	  <% @recipe.ingredients.each do |i| %>
+	  
+        <li><%= i.ingredient %></li>
+		
+      <% end %>
+	    
+    </ul>
+	
+	
+  <h2>To make it all edible you should: </h2>
+    
+  <p><%= @recipe.instructions %></p>
+      
+  <p><a href="/create_recipe/user/<%= @user.id %>">Create another recipe?</a></p>
+  
+  <br>
+  
   <a href="/">Home</a>
-<%end%>
+  
+  <% else %>
+  
+  <h1>A Recipe by that name already exists. Please try again.</h1>
+  
+  	<h2><a href="/create_recipe/user/<%= @user.id %>">Try again?</a></h2>
+	
+	<h2><a href="/">Home</a></h2>
+    
+<% end %>
 
 

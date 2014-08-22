@@ -1,11 +1,9 @@
 # Index, show, new, create, edit, update, delete
-require 'pry'
 
-require 'sinatra'
-require 'sinatra/reloader'
-require 'sinatra/activerecord'
+require 'rubygems'
+require 'bundler'
 
-require 'sqlite3'
+Bundler.require
 
 require_relative './models/ingredient.rb'
 require_relative './models/category.rb'
@@ -24,39 +22,87 @@ get '/create_user' do
   erb :create_user
 end
 
-post '/save_user' do
-  @new_user = User.create(name: params['name'])
-
-  if @new_user.errors.any?
-    @name_message = 'That name is taken. PLEASE TRY AGAIN.'
-  else
-    @name_message = @new_user.name
-  end
-
+post '/new_user' do
+  @user = User.create(name: params['name'])
   @names = User.all
+
+  erb :new_user
+end
+
+get '/user_page' do
+  @user = User.find(params[:user])
+
+  erb :user_page
+end
+
+get '/user/edit/:u_id' do
+  @user = User.find(params[:u_id])
+
+  erb :edit_user
+end
+
+get '/user/:u_id' do
+  @user = User.find(params[:u_id])
+
+  erb :user_page
+end
+
+get '/user/:u_id/edit_recipes' do
+  u_id = params[:u_id]
+  @user = User.find(u_id)
+
+  erb :edit_recipes
+end
+
+get '/update_user/:u_id' do
+  @user = User.find(params[:u_id])
+  @user.update_attributes(name: params[:name])
+
+  erb :user_page
+end
+
+get '/edit/recipe/:r_id' do
+  @recipe = Recipe.find(params[:r_id])
+  @categories = Category.all
+
+  erb :edit_recipe
+end
+
+get '/updated_recipe/:r_id' do
+
+  erb :updated_recipe
+end
+
+get '/user/delete/:u_id' do
+  User.delete(params[:u_id])
+
+  erb :delete_user
+end
+
+get '/create_recipe/user/:u_id' do
+  @user = User.find(params[:u_id])
+  @categories = Category.all
 
   erb :create_recipe
 end
 
-get '/create_recipe' do
-  @names = User.all
+post '/save_recipe/user/:u_id' do
+  u = params[:u_id]
+  r = params[:recipe]
+  i = params[:instructions]
+  c = params[:categorylist]
 
-  erb :create_recipe
-end
-
-post '/save_recipe' do
-  id = params['namelist']
-  r = params['frecipe']
-  i = params['finstructions']
-  c = params['categorylist']
-
-  @recipe = Recipe.create(name: r, instructions: i, category_id: c, user_id: id)
+  @user = User.find(u)
+  @recipe = Recipe.create(name: r, instructions: i, category_id: c, user_id: u)
+  @category = Category.find(c).name
 
   params.each do |k, v|
-    if k.length < 3 && v.length > 1
-      new_ing = Ingredient.create(ingredient: v)
-      @recipe.ingredients << new_ing unless @recipe.ingredients.include? new_ing
-    end
+
+    next unless k.length <= 2 && v.length > 1
+
+    new_ing = Ingredient.create(ingredient: v)
+    @recipe.ingredients << new_ing unless @recipe.ingredients.include? new_ing
+
   end
 
   erb :new_recipe_page

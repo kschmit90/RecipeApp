@@ -2,6 +2,9 @@
 #
 # Stores Users who have many Recipies.
 class User < ActiveRecord::Base
-  validates_uniqueness_of :name
+  validates :name, presence: true
+  validates :name, uniqueness: true
   has_many :recipes
 end
+
+

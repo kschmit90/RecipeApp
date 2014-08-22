@@ -1,0 +1,11 @@
+<h1>Edit <%= @user.name %></h2>
+	
+<form action="/update_user/<%= @user.id %>">
+		
+<h2>Name: <input type="text" name="name" value="<%= @user.name %>"><input type="submit" value="Edit"></h2>
+
+</form>
+
+<h2><a href="/user/<%= @user.id %>">User Page</h2>
+	
+<h2><a href="/">Home</a></h2>

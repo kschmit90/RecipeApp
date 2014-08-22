@@ -1,9 +1,9 @@
 development:
-  database: recipe.db
+  database: db/recipe.db
   adapter: sqlite3
 
 test:
-  database: recipe_test.db
+  database: db/recipe_test.db
   adapter: sqlite3
 
 # Indentation matters!

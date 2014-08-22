@@ -1,30 +1,67 @@
 <h1>Recipe Generator 3000</h1>
 
 <h2>To save recipes to your name, create a user.</h2>
+
 <h2><a href="/create_user">Create a User</a></h2>
 
 <p>Users are unique, if a name already exists, try again.</p>
-<p>Recipes will be saved to your name.</p>
-<h2><a href="/create_recipe">Create a Recipe</a></h2>
-					
-<p>Recipes are unique, be specific in your naming.</p>
-<form action="/recipe_search" method="get">
-<h2>Search for Recipes: <input type="text" name="search"><input type="submit" value="Search!"></h2>
-</form>
-<h2>Look up recipes by user.</h2>
-<form action="/user_recipes" method="get" id="nameform">
-					<select name="id" form="nameform">
-					<%@names.each do |n|%>
-						<option value="<%=n.id%>"><%=n.name%></option>
-					<%end%>
-					<input type="submit" value="Search!">
-					</select>
-</form>
-<h2>Look up recipes by category.</h2>
-<form action="/recipes_by_category" method="get" id="categoryform">
-	<select name="category" form="categoryform">
-		<%@categories.each do |c|%>
-			<option value="<%=c.id%>"><%=c.name%></option>
-		<%end%>
-		<input type="submit" value="Search!">
+
+<h2>User Select</h2>
+
+<form action="/user_page" method="get" id="userform">
+	
+	<select name="user" form="userform">
+		
+		<% @names.each do |n| %>
+		
+			<option value="<%= n.id %>"><%= n.name %></option>
+			
+		<% end %>
+		
 	</select>
+	
+	<input type="submit" value="Submit">
+	
+</form>
+					
+<form action="/recipe_search" method="get">
+	
+<h2>Search for Recipes: <input type="text" name="search"><input type="submit" value="Search!"></h2>
+
+</form>
+
+<h2>Look up recipes by user.</h2>
+
+<form action="/user_recipes" method="get" id="nameform">
+	
+	<select name="id" form="nameform">
+						
+		<% @names.each do |n| %>
+					
+			<option value="<%= n.id %>"><%= n.name %></option>
+		
+		<% end %>
+				
+	</select>
+	
+	<input type="submit" value="Search!">
+	
+</form>
+
+<h2>Look up recipes by category.</h2>
+
+<form action="/recipes_by_category" method="get" id="categoryform">
+	
+	<select name="category" form="categoryform">
+		
+		<% @categories.each do |c| %>
+		
+			<option value="<%= c.id %>"><%= c.name %></option>
+			
+		<% end %>
+		
+		<input type="submit" value="Search!">
+		
+	</select>
+	
+</form>

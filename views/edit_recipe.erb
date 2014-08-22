@@ -1,0 +1,57 @@
+<form action="/update_recipe/<%= @recipe.id %>">	
+	<ul>
+		
+		<li>Recipe Name: <input type="text" name="recipe" value="<%= @recipe.name %>"></li>
+	
+    	<li>Category: <select name="categorylist" form="recipeform">
+		
+			 	  	  <% @categories.each do |c| %>
+					
+                  	  	<option value="<%= c.id %>"><%= c.name %></option>
+					
+				  	  <% end %>
+					
+     		   	     </select>
+    			 </li>
+	
+    	<li>Instructions: <textarea cols="40" rows="5" name="instructions"></textarea></li>
+	
+  </ul>
+  
+      <ol>
+		  
+        <li>Ingredient: <input type="text" name="i1"></li>
+		
+        <li>Ingredient: <input type="text" name="i2"></li>
+        
+		<li>Ingredient: <input type="text" name="i3"></li>
+        
+		<li>Ingredient: <input type="text" name="i4"></li>
+        
+		<li>Ingredient: <input type="text" name="i5"></li>
+        
+		<li>Ingredient: <input type="text" name="i6"></li>
+        
+		<li>Ingredient: <input type="text" name="i7"></li>
+        
+		<li>Ingredient: <input type="text" name="i8"></li>
+        
+		<li>Ingredient: <input type="text" name="i9"></li>
+        
+		<li>Ingredient: <input type="text" name="i10"></li>
+        
+		<li>Ingredient: <input type="text" name="i11"></li>
+        
+		<li>Ingredient: <input type="text" name="i12"></li>
+        
+		<li>Ingredient: <input type="text" name="i13"></li>
+        
+		<li>Ingredient: <input type="text" name="i14"></li>
+        
+		<li>Ingredient: <input type="text" name="i15"></li>
+		
+      </ol>
+	  
+<input type="submit" value="Edit">
+
+</form>
