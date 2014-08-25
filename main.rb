@@ -18,7 +18,6 @@ require_relative './routes/users.rb'
 get '/' do
   @categories = Category.all
   @names = User.all
-  binding.pry
   erb :home
 end
 
