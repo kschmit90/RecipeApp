@@ -14,11 +14,11 @@ require_relative './routes/categories.rb'
 require_relative './routes/ingredients.rb'
 require_relative './routes/recipes.rb'
 require_relative './routes/users.rb'
-binding.pry
+
 get '/' do
   @categories = Category.all
   @names = User.all
-
+  binding.pry
   erb :home
 end
 
