@@ -25,6 +25,7 @@ get '/create_recipe/user/:u_id' do
 end
 
 post '/save_recipe/user/:u_id' do
+  binding.pry
   u = params[:u_id]
   r = params[:recipe]
   i = params[:instructions]
@@ -37,10 +38,10 @@ post '/save_recipe/user/:u_id' do
   params.each do |k, v|
 
     if k.length <= 2 && v.length > 1
-
+      
       new_ing = Ingredient.create(ingredient: v)
       @recipe.ingredients << new_ing unless @recipe.ingredients.include? new_ing
-    
+      
     end
     
   end
