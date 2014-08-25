@@ -1,7 +1,0 @@
-CREATE TABLE categories (id INTEGER PRIMARY KEY, name VARCHAR(50));
-CREATE TABLE ingredients (id INTEGER PRIMARY KEY, ingredient VARCHAR(50));
-CREATE TABLE ingredients_recipes (ingredient_id INTEGER, recipe_id INTEGER);
-CREATE TABLE recipes (id INTEGER PRIMARY KEY, name VARCHAR(50), instructions TEXT, category_id INTEGER, user_id INTEGER);
-CREATE TABLE users (id INTEGER PRIMARY KEY, name VARCHAR(50));
-CREATE TABLE versions (item_type VARCHAR(50), item_id INTEGER, event VARCHAR(50), whodunnit VARCHAR(50), object TEXT, created_at DATETIME);
-CREATE INDEX versions_item_type_item_id ON versions(item_type, item_id);
