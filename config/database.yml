@@ -5,5 +5,5 @@ development:
 test:
   database: db/recipe_test.db
   adapter: sqlite3
-
+  
 # Indentation matters!
