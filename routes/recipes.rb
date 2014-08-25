@@ -39,8 +39,8 @@ post '/save_recipe/user/:u_id' do
 
     if k.length <= 2 && v.length > 1
       
-      new_ing = Ingredient.create(ingredient: v)
-      @recipe.ingredients << new_ing unless @recipe.ingredients.include? new_ing
+      ing = Ingredient.create(ingredient: v)
+      @recipe.ingredients << ing unless @recipe.ingredients.include? ing
       
     end
     
