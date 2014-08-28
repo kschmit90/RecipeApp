@@ -16,6 +16,7 @@ require_relative './routes/recipes.rb'
 require_relative './routes/users.rb'
 
 get '/' do
+  binding.pry
   @categories = Category.all
   @names = User.all
   erb :home

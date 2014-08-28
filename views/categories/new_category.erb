@@ -1,1 +1,17 @@
+<% if @category.valid? %>
+
 <h1>New category is <%= @category.name %></h1>
+
+<form action="new_category" method="post">
+<h2>Again<input type="text" name="cat"><input type="submit"></h2>
+</form>
+
+<% else %>
+
+<h1>Category exists</h1>
+
+<form action="new_category" method="post">
+<h2>Again<input type="text" name="cat"><input type="submit"></h2>
+</form>
+
+<% end %>
