@@ -16,13 +16,14 @@ require_relative './routes/recipes.rb'
 require_relative './routes/users.rb'
 
 get '/' do
-  binding.pry
   @categories = Category.all
   @names = User.all
+
   erb :home
 end
 
 get '/recipe_search' do
+  @names = User.all
   @n = params['search']
   @recipes = Recipe.where("name LIKE '%#{@n}%'")
 

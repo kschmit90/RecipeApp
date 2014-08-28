@@ -1,29 +1,3 @@
-<h1>Recipe Generator 3000</h1>
-
-<h2>To save recipes to your name, create a user.</h2>
-
-<h2><a href="/create_user">Create a User</a></h2>
-
-<p>Users are unique, if a name already exists, try again.</p>
-
-<h2>User Select</h2>
-
-<form action="/user_page" method="get" id="userform">
-	
-	<select name="user" form="userform">
-		
-		<% @names.each do |n| %>
-		
-			<option value="<%= n.id %>"><%= n.name %></option>
-			
-		<% end %>
-		
-	</select>
-	
-	<input type="submit" value="Submit">
-	
-</form>
-					
 <form action="/recipe_search" method="get">
 	
 <h2>Search for Recipes: <input type="text" name="search"><input type="submit" value="Search!"></h2>

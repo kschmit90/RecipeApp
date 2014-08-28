@@ -1,4 +1,5 @@
 get '/user/:u_id/edit_recipes' do
+  @names = User.all
   u_id = params[:u_id]
   @user = User.find(u_id)
 
@@ -6,6 +7,7 @@ get '/user/:u_id/edit_recipes' do
 end
 
 get '/edit/recipe/:r_id' do
+  @names = User.all
   @recipe = Recipe.find(params[:r_id])
   @categories = Category.all
 
@@ -13,11 +15,13 @@ get '/edit/recipe/:r_id' do
 end
 
 get '/updated_recipe/:r_id' do
+  @names = User.all
 
   erb :'recipes/updated_recipe'
 end
 
 get '/create_recipe/user/:u_id' do
+  @names = User.all
   @user = User.find(params[:u_id])
   @categories = Category.all
 
@@ -25,6 +29,8 @@ get '/create_recipe/user/:u_id' do
 end
 
 post '/save_recipe/user/:u_id' do
+  @names = User.all
+  
   u = params[:u_id]
   r = params[:recipe]
   i = params[:instructions]
@@ -50,11 +56,12 @@ post '/save_recipe/user/:u_id' do
   end
   
   @ingredients = @recipe.ingredients
-  binding.pry
+
   erb :'recipes/new_recipe_page'
 end
 
 get '/recipe_page/:id' do
+  @names = User.all
   r_id = params['id']
   @recipe = Recipe.find(r_id)
 
