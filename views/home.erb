@@ -1,41 +1,54 @@
-<form action="/recipe_search" method="get">
+<div id="home">
+	<div id="recipe_search">
+		<form action="/recipe_search" method="get">
 	
-<h2>Search for Recipes: <input type="text" name="search"><input type="submit" value="Search!"></h2>
-
-</form>
-
-<h2>Look up recipes by user.</h2>
-
-<form action="/user_recipes" method="get" id="nameform">
-	
-	<select name="id" form="nameform">
-						
-		<% @names.each do |n| %>
-					
-			<option value="<%= n.id %>"><%= n.name %></option>
-		
-		<% end %>
+			<p>Search for Recipes:</p> 
 				
-	</select>
-	
-	<input type="submit" value="Search!">
-	
-</form>
+				<input type="text" name="search">
+				
+				<input type="submit" value="">
 
-<h2>Look up recipes by category.</h2>
-
-<form action="/recipes_by_category" method="get" id="categoryform">
+		</form>
+	</div>
 	
-	<select name="category" form="categoryform">
-		
-		<% @categories.each do |c| %>
-		
-			<option value="<%= c.id %>"><%= c.name %></option>
+	<div id="recipes_by_user">
+		<form action="/user_recipes" method="get" id="nameform">
+	
+			<p>Recipes by Username</p>
 			
-		<% end %>
+			<select name="id" form="nameform">
+						
+				<% @names.each do |n| %>
+					
+				<option value="<%= n.id %>"><%= n.name %></option>
 		
-		<input type="submit" value="Search!">
-		
-	</select>
+				<% end %>
+				
+			</select>
 	
-</form>
+			<input type="submit" value="">
+	
+		</form>
+	</div>
+	
+	<div id="recipes_by_category">
+		
+		<p>Recipes by Category</p>
+
+		<form action="/recipes_by_category" method="get" id="categoryform">
+	
+			<select name="category" form="categoryform">
+		
+				<% @categories.each do |c| %>
+		
+				<option value="<%= c.id %>"><%= c.name %></option>
+			
+				<% end %>
+		
+				<input type="submit" value="">
+		
+			</select>
+	
+		</form>
+	</div>
+</div>
