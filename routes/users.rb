@@ -49,6 +49,7 @@ get '/user_recipes' do
 end
 
 get '/user/delete/:u_id' do
+  @names = User.all
   User.delete(params[:u_id])
 
   erb :'users/delete_user'

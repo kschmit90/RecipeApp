@@ -161,3 +161,7 @@ header form {
 #content {
 	clear: both;
 }
+
+#admin li{
+	margin: 10px;
+}

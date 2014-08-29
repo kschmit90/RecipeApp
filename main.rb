@@ -14,6 +14,7 @@ require_relative './routes/categories.rb'
 require_relative './routes/ingredients.rb'
 require_relative './routes/recipes.rb'
 require_relative './routes/users.rb'
+require_relative './routes/admin.rb'
 
 get '/' do
   @categories = Category.all
