@@ -160,6 +160,11 @@ header form {
 
 #content {
 	clear: both;
+	margin-left: 55px;
+}
+
+#content li p {
+	width: 500px;
 }
 
 #admin li{
