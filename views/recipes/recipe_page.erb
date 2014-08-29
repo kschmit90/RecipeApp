@@ -2,9 +2,9 @@
 <p>Recipe created by - <%=@recipe.user.name%></p>
 <ul>
 	<li></p>Category - <%=Category.find(@recipe.category_id).name%></p></li>
-  	<br>
+	
     <li><p>Instructions - <%=@recipe.instructions%></p></li> 
-	<br> 
+	
     <li><p>Ingredients:</p></li>
 	<ul>
         <%@recipe.ingredients.each do |i|%>
