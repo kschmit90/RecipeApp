@@ -32,7 +32,7 @@ header input[type=submit] {
 	border-radius: 5px;
 	background-repeat: no-repeat;
 	background-position-x: 0px;
-	background-position-y: 7px;
+	background-position-y: 6px;
 	background-size: 18px;
 }
 
@@ -63,13 +63,14 @@ header {
 #header_content p {
 	font-size: 50px;
 	margin: 0;
-	margin-top: 10px;
-	margin-left: 16px;
+	margin-top: 27px;
+	margin-left: 27px;
 }
 
 header nav {
 	float: right;
-	margin-right: 20px;
+	margin-right: -23px;
+	margin-top: 6px;
 }
 
 header ul li {
@@ -86,8 +87,10 @@ header form {
 
 #recipe_search {
 	width: 800px;
-	margin: 0 auto;
+	margin-left: 61px;
+	position: relative;
 	text-align: center;
+	bottom: -8px;
 }
 
 #recipe_search p {
@@ -114,8 +117,11 @@ header form {
 
 #recipes_by_user {
 	width: 800px;
-	margin: 0 auto;
 	text-align: center;
+	margin-left: 61px;
+	position: relative;
+	bottom: 3px;
+
 }
 
 #recipes_by_user p {
@@ -137,8 +143,10 @@ header form {
 
 #recipes_by_category {
 	width: 800px;
-	margin: 0 auto;
 	text-align: center;
+	margin-left: 61px;
+	position: relative;
+	top: 4px;
 }
 
 #recipes_by_category p {
