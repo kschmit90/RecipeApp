@@ -1,0 +1,15 @@
+<% if @user.valid? %>
+
+<h1>New User is <%= @user.name %></h1>
+
+<p><a href='/create_recipe/user/<%= @user.id %>'>Create Recipe</a></p>
+
+<% else %>
+
+<h1>That name is taken.</h1>
+
+<p><a href='/create_user'>Try again</a></p>
+
+<% end %>
+
+<p><a href='/'>Home</p>
