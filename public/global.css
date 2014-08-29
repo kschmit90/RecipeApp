@@ -25,7 +25,7 @@ header input[type=text]:focus {
 
 header input[type=submit] {
 	padding: 5px 15px;
-	background: url("user_select.png");
+	background: url("images/user_select.png");
 	border: 0 none;
 	cursor: pointer;
 	-webkit-border-radius: 5px;
@@ -101,7 +101,7 @@ header form {
 
 #recipe_search input[type=submit] {
 	padding: 5px 15px;
-	background: url("pizza.png");
+	background: url("images/pizza.png");
 	border: 0 none;
 	cursor: pointer;
 	-webkit-border-radius: 5px;
@@ -124,7 +124,7 @@ header form {
 
 #recipes_by_user input[type=submit] {
 	padding: 5px 15px;
-	background: url("user_select.png");
+	background: url("images/user_select.png");
 	border: 0 none;
 	cursor: pointer;
 	-webkit-border-radius: 5px;
@@ -147,7 +147,7 @@ header form {
 
 #recipes_by_category input[type=submit] {
 	padding: 5px 15px;
-	background: url("chef.png");
+	background: url("images/chef.png");
 	border: 0 none;
 	cursor: pointer;
 	-webkit-border-radius: 5px;
