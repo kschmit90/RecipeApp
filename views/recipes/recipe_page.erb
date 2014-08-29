@@ -1,14 +1,14 @@
 <h1><%=@recipe.name%></h1>
 <p>Recipe created by - <%=@recipe.user.name%></p>
 <ul>
-	<li>Category - <%=Category.find(@recipe.category_id).name%></li>
+	<li></p>Category - <%=Category.find(@recipe.category_id).name%></p></li>
   	<br>
-    <li>Instructions - <%=@recipe.instructions%></li> 
+    <li><p>Instructions - <%=@recipe.instructions%></p></li> 
 	<br> 
-    <li>Ingredients:</li>
+    <li><p>Ingredients:</p></li>
 	<ul>
         <%@recipe.ingredients.each do |i|%>
-        <li><%=i.ingredient%></li>
+        <p><li><%=i.ingredient%></li></p>
         <%end%>
 	</ul>
 </ul>
