@@ -6,7 +6,7 @@ html {
 }
 
 body {
-	background: #666666;
+	background: #8C2318;
 }
 
 header input[type=text] {
@@ -42,7 +42,7 @@ a {
 }
 
 #container {
-	background: #808000;
+	background: #5E8C6A;
 	width: 1000px;
 	margin: 0 auto;
 	font-family: sans-serif;
@@ -52,7 +52,7 @@ a {
 header {
 	width: 1000px;
 	height: 90px;
-	background:#930;
+	background:#BFB35A;
 }
 
 #header_content {
