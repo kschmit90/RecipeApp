@@ -5,6 +5,10 @@ html {
   box-sizing: inherit;
 }
 
+.error{
+	color: red;
+}
+
 body {
 	background: #8C2318;
 }

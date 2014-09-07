@@ -7,7 +7,7 @@ get '/recipes_by_category' do
 end
 
 get '/add_category' do
-  
+  @names = User.all
   erb :'categories/add_category'
 end
 

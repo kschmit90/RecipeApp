@@ -32,7 +32,7 @@ post '/save_recipe/user/:u_id' do
   @names = User.all
   
   u = params[:u_id]
-  r = params[:recipe]
+  r = params[:recipe_name]
   i = params[:instructions]
   c = params[:categorylist]
 

@@ -1,46 +1,13 @@
-<head>
-	
-<script>
-
-function validateName() {
-	
-	var y = document.forms["recipe"]["recipe"].value;
-	
-	var z = document.forms["recipe"]["instructions"].value;
-	
-	var i = document.forms["recipe"]["i1"].value;
-	
-	if (y == null || y == "") {
-		alert("Recipe must be filled out");
-		return false;
-	}
-	
-	else if (z == null || z == "") {
-		alert("Instructions must be filled out");
-		return false;
-	}
-	
-	else if (i == null || i == "") {
-		alert("Fill out at least the first Ingredient");
-		return false;
-	}
-}
-
-</script>
-
-</head>
-
-<body>
-
 <h1>Create a Recipe</h1>
 
-<form name="recipe" action="/save_recipe/user/<%= @user.id %>"  id="recipeform" onsubmit="return validateName()" method="post">
+<form name="recipe" action="/save_recipe/user/<%= @user.id %>"  id="recipe_form" method="post">
   
   <ul>
 		
-	<li>Recipe Name: <input type="text" name="recipe" value="e.g. pepperoni pizza"></li>
+	<li>Recipe Name: <input type="text" name="recipe_name" id="recipe_name">
+	<span class="error">Please Give the Recipe a Name.</span></li>
 	
-    <li>Category: <select name="categorylist" form="recipeform">
+    <li>Category: <select name="categorylist" form="recipe_form">
 		
 			 	  	<% @categories.each do |c| %>
 					
@@ -51,14 +18,15 @@ function validateName() {
      		   	  </select>
     </li>
 	
-    <li>Instructions: <textarea cols="40" rows="5" name="instructions"></textarea></li>
+    <li>Instructions: <textarea cols="40" rows="5" name="instructions" id="instructions"></textarea>
+	<span class="error">Please Give Some Instructions.</span></li>
 	
   </ul>
   
       <ol>
 		  
-        <li>Ingredient: <input type="text" name="i1"></li>
-		
+        <li>Ingredient: <input type="text" name="i1" id="ingredient">
+		<span class="error">Please Enter at Least One Ingredient Here.</span></li>
         <li>Ingredient: <input type="text" name="i2"></li>
         
 		<li>Ingredient: <input type="text" name="i3"></li>
@@ -94,5 +62,3 @@ function validateName() {
 </form>
 
 <a href='/'>Home</a>
-
-</body>
