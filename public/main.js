@@ -9,17 +9,17 @@ $(document).ready(function(){
 		var ingredient = $("#ingredient").val();
 
 		if (recipe_name === ""){
-			$("#recipe_name").next(".error").show();
+			$("#recipe_name").next().show();
 			valid_form = false;
 		}
 
 		if (instructions === ""){
-			$("#instructions").next(".error").show();
+			$("#instructions").next().show();
 			valid_form = false;
 		}
 
 		if (ingredient === ""){
-			$("#ingredient").next(".error").show();
+			$("#ingredient").next().show();
 			valid_form = false;
 		}
 
